@@ -11,7 +11,6 @@ const car = new Car(100, 300, 30, 50);
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   car.draw(ctx);
-  console.log(car.speed);
   car.update();
   requestAnimationFrame(animate);
 }

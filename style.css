@@ -4,7 +4,7 @@ padding:0;
 border:1px solid salmon
 }
 body{
-    
+    overflow: hidden;
     text-align: center;
 }
 #myCanvas{
