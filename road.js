@@ -1,4 +1,4 @@
-class Car {
+class Road {
   constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
@@ -46,24 +46,29 @@ class Car {
         }
       }
     }
-    if (this.speed !== 0) {
-      if (this.controls.left) {
-        this.speed >= 0 ? (this.angle += 0.03) : (this.angle -= 0.03);
-      }
-
-      if (this.controls.right) {
-        this.speed > 0 ? (this.angle -= 0.03) : (this.angle += 0.03);
-      }
-    }
-    this.x -= this.speed * Math.sin(this.angle);
-    //this.y -= this.speed * Math.cos(this.angle);
+    this.y += this.speed * Math.cos(this.angle);
   }
   draw(ctx) {
     ctx.save();
     ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
-    ctx.rotate(-this.angle);
+    ctx.rotate(this.angle);
     ctx.translate(-(this.x + this.width / 2), -(this.y + this.height / 2));
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.restore();
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(this.x + this.width / 2, this.y);
+    ctx.lineTo(this.x + this.width / 2, this.y + this.height / 6);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(this.x + this.width / 2, this.y + this.height / 2);
+    ctx.lineTo(this.x + this.width / 2, this.y + this.height / 3);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(this.x + this.width / 2, this.y + (2 * this.height) / 3);
+    ctx.lineTo(this.x + this.width / 2, this.y + (5 * this.height) / 6);
+    ctx.stroke();
   }
 }

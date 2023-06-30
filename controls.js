@@ -8,7 +8,7 @@ class Controls {
   }
 
   #addEventListeners() {
-    window.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {
       switch (e.key) {
         case 'ArrowLeft':
           this.left = true;
@@ -24,7 +24,7 @@ class Controls {
           break;
       }
     });
-    window.addEventListener('keyup', (e) => {
+    document.addEventListener('keyup', (e) => {
       switch (e.key) {
         case 'ArrowLeft':
           this.left = false;
